@@ -2,8 +2,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Stack;
 
-
-
 /*
  * @lc app=leetcode.cn id=145 lang=java
  *
@@ -16,22 +14,29 @@ import java.util.Stack;
 class Solution {
     List<Integer> list = new ArrayList<>();
 
+    // right left root
     public List<Integer> postorderTraversal(TreeNode root) {
-        //helper(root);
-
-        Stack<TreeNode> stacks=new Stack<>();
-        TreeNode curr=root;
-        while(curr!=null||!stacks.isEmpty()){
-            if(curr.left!=null){
+        if (root == null) {
+            return list;
+        }
+        Stack<TreeNode> stacks = new Stack<>();
+        stacks.push(root);
+        TreeNode curr;
+        while (!stacks.isEmpty()) {
+            curr = stacks.pop();
+            if (curr.left != null) {
+                stacks.push(curr);
                 stacks.push(curr.left);
-                curr=curr.left;
+                curr.left = null;
                 continue;
             }
-            if(curr.right!=null){
+            if (curr.right != null) {
+                stacks.push(curr);
                 stacks.push(curr.right);
+                curr.right = null;
+                continue;
             }
             list.add(curr.val);
-            curr=stacks.pop();
         }
         return list;
     }

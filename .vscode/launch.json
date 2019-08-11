@@ -6,6 +6,34 @@
     "configurations": [
         {
             "type": "java",
+            "name": "CodeLens (Launch) - Codec",
+            "request": "launch",
+            "mainClass": "Codec",
+            "projectName": "LeetCodeHouse_1a3bce11"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - TestLeetCode",
+            "request": "launch",
+            "mainClass": "TestLeetCode",
+            "projectName": "LeetCodeHouse_1a3bce11"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - Solution",
+            "request": "launch",
+            "mainClass": "Solution",
+            "projectName": "LeetCodeHouse_1a3bce11"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - MinStack",
+            "request": "launch",
+            "mainClass": "MinStack",
+            "projectName": "LeetCodeHouse_1a3bce11"
+        },
+        {
+            "type": "java",
             "name": "Debug (Launch) - Current File",
             "request": "launch",
             "mainClass": "${file}"

@@ -2,7 +2,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Stack;
 
-
 /*
  * @lc app=leetcode.cn id=94 lang=java
  *
@@ -21,39 +20,40 @@ class Solution {
     // * @param root
     // * @return
     // */
-    // public List<Integer> inorderTraversal(TreeNode root) {
-    // if (root == null) {
-    // return null;
-    // }
-    // inorderTraversal(root.left);
-    // list.add(root.val);
-    // inorderTraversal(root.right);
-    // return list;
-    // }
+    public List<Integer> inorderTraversal(TreeNode root) {
+        if (root == null) {
+            return null;
+        }
+        inorderTraversal(root.left);
+        list.add(root.val);
+        inorderTraversal(root.right);
+        return list;
+    }
 
     // 这个方法会改变树的结构，不好
-    // public List<Integer> inorderTraversal(TreeNode root) {
-    // List<Integer> result = new ArrayList();
-    // Stack<TreeNode> stack = new Stack<>();
-    // stack.push(root);
-    // while (!stack.isEmpty()) {
-    // TreeNode raw = stack.pop();
-    // if (raw != null) {
-    // if (raw.left != null) {
-    // stack.push(raw);
-    // stack.push(raw.left);
-    // raw.left = null;
-    // continue;
-    // }
-    // result.add(raw.val);
-    // if (raw.right != null) {
-    // stack.push(raw.right);
-    // raw.right = null;
-    // }
-    // }
-    // }
-    // return result;
-    // }
+    public List<Integer> inorderTraversal(TreeNode root) {
+        List<Integer> result = new ArrayList();
+        Stack<TreeNode> stack = new Stack<>();
+        stack.push(root);
+        while (!stack.isEmpty()) {
+            TreeNode raw = stack.pop();
+            if (raw != null) {
+                if (raw.left != null) {
+                    stack.push(raw);
+                    stack.push(raw.left);
+                    raw.left = null;
+                    continue;
+                }
+                result.add(raw.val);
+                if (raw.right != null) {
+                    stack.push(raw.right);
+                    raw.right = null;
+                }
+            }
+        }
+        return result;
+    }
+
     public List<Integer> inorderTraversal(TreeNode root) {
         Stack<TreeNode> stack = new Stack<>();
         TreeNode curr = root;
@@ -65,7 +65,7 @@ class Solution {
             }
             curr = stack.pop();
             list.add(curr.val);
-            curr=curr.right;
+            curr = curr.right;
         }
         return list;
     }

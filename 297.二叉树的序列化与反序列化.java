@@ -2,24 +2,16 @@ import java.util.LinkedList;
 import java.util.Queue;
 
 /*
- * @lc app=leetcode.cn id=129 lang=java
+ * @lc app=leetcode.cn id=297 lang=java
  *
- * [129] 求根到叶子节点数字之和
+ * [297] 二叉树的序列化与反序列化
  */
 /**
  * Definition for a binary tree node. public class TreeNode { int val; TreeNode
  * left; TreeNode right; TreeNode(int x) { val = x; } }
  */
-public class TestLeetCode {
-    public static class TreeNode {
-        int val;
-        TreeNode left;
-        TreeNode right;
+public class Codec {
 
-        public TreeNode(int x) {
-            val = x;
-        }
-    }
 
     // Encodes a tree to a single string.
     public String serialize(TreeNode root) {
@@ -70,16 +62,8 @@ public class TestLeetCode {
         return node;
     }
 
-    public static void main(String[] args) {
-        TreeNode node1 = new TreeNode(1);
-        TreeNode node2 = new TreeNode(2);
-        TreeNode node3 = new TreeNode(3);
-        node1.left = node2;
-        node1.right = node3;
-
-        TestLeetCode s = new TestLeetCode();
-        System.out.println(s.serialize(s.deserialize(",1,2,3,-,-,-,-")));
-        System.out.println(s.serialize(node1));
-    }
-
 }
+
+// Your Codec object will be instantiated and called as such:
+// Codec codec = new Codec();
+// codec.deserialize(codec.serialize(root));
