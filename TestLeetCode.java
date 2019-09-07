@@ -1,5 +1,4 @@
-import java.util.LinkedList;
-import java.util.Queue;
+import java.util.HashMap;
 
 /*
  * @lc app=leetcode.cn id=129 lang=java
@@ -11,75 +10,27 @@ import java.util.Queue;
  * left; TreeNode right; TreeNode(int x) { val = x; } }
  */
 public class TestLeetCode {
-    public static class TreeNode {
-        int val;
-        TreeNode left;
-        TreeNode right;
-
-        public TreeNode(int x) {
-            val = x;
-        }
-    }
-
-    // Encodes a tree to a single string.
-    public String serialize(TreeNode root) {
-        if (root == null) {
-            return null;
-        }
-        StringBuilder builder = new StringBuilder();
-        Queue<TreeNode> queue = new LinkedList<>();
-        queue.offer(root);
-        while (!queue.isEmpty()) {
-            TreeNode curr = queue.poll();
-            if (curr == null) {
-                builder.append(",-");
-            } else {
-                builder.append("," + curr.val);
-                queue.offer(curr.left);
-                queue.offer(curr.right);
-            }
-        }
-        return builder.toString();
-    }
-
-    // Decodes your encoded data to tree.
-    public TreeNode deserialize(String data) {
-        if (data == null || data.equals("")) {
-            return null;
-        }
-        String[] datas = data.split(",");
-        TreeNode node = new TreeNode(Integer.valueOf(datas[1]));
-        Queue<TreeNode> queue = new LinkedList<>();
-        queue.offer(node);
-        int index = 2;
-        while (index < datas.length - 2) {
-            TreeNode curr = queue.poll();
-            String di = datas[index++];
-
-            if (!di.equals("-")) {
-                curr.left = new TreeNode(Integer.valueOf(di));
-                queue.offer(curr.left);
-            }
-            di = datas[index++];
-
-            if (!di.equals("-")) {
-                curr.right = new TreeNode(Integer.valueOf(di));
-                queue.offer(curr.right);
-            }
-        }
-        return node;
-    }
 
     public static void main(String[] args) {
-        TreeNode node1 = new TreeNode(1);
-        TreeNode node2 = new TreeNode(2);
-        TreeNode node3 = new TreeNode(3);
-        node1.left = node2;
-        node1.right = node3;
+        String res = "12、活跃度低-289、活跃度低-1、活跃度低-56、活跃度低-2680、活跃度低-1、活跃度低-168、活跃度低-7、活跃度低-69、活跃度低-12680、活跃度低-2、活跃度低-12、活跃度低-59、活跃度低-3690、活跃度低-470、活跃度低-24780、活跃度低-3、活跃度低-45789、活跃度低-17、活跃度低-178、活跃度低-89、活跃度低-460、活跃度低-360、活跃度低-3467、活跃度低-4、活跃度低-134670、活跃度低-579、活跃度低-47890、活跃度低-2456789、活跃度低-40、活跃度低-369、活跃度低-1、活跃度低-8、活跃度低-3、活跃度低-5、活跃度低-13589、活跃度低-1356、活跃度低-237、活跃度低-160、活跃度低-1、活跃度低-45、活跃度低-480、活跃度低-24569、活跃度低-56、活跃度低-36、活跃度低-6、活跃度低-8、活跃度低-3、活跃度低-49、活跃度低-12、活跃度低-0、活跃度低-1、活跃度低-345670、活跃度低-29、活跃度低-23、活跃度低-780、活跃度低-70、活跃度低-279、活跃度低-236、活跃度低-13、活跃度低-30、活跃度低-578、活跃度低-2、活跃度低-4780、活跃度低-123580、活跃度低-26、活跃度低-459、活跃度低-34690、活跃度低-250、活跃度低-189、活跃度低-8、活跃度低-7、活跃度低-245670、活跃度低-2、活跃度低-5、活跃度低-25678、活跃度低-1、活跃度低-14、活跃度低-1、活跃度低-40、活跃度低-12460、活跃度低-2478、活跃度低-8、活跃度低-1、活跃度低-29、活跃度低-0、活跃度低-1、活跃度低-90、活跃度低-14、活跃度低-256、活跃度低-345、活跃度低-2、活跃度低-2、活跃度低-29、活跃度低-12457、活跃度低-6、活跃度低-90、活跃度低-590、活跃度低-179、活跃度低-135、活跃度低-7、活跃度低-40、活跃度低-1、活跃度低-34568、活跃度低-78、活跃度低-5、活跃度低-235、活跃度低-37890、活跃度低-0、活跃度低-24、活跃度低-3、活跃度低-5、活跃度低-8、活跃度低-46、活跃度低-6、活跃度低-123467890、活跃度低-46、活跃度低-2490、活跃度低-36789、活跃度低-124、活跃度低-2、活跃度低-1、活跃度低-2、活跃度低-6、活跃度低-1245、活跃度低-3、活跃度低-5790、活跃度低-3、活跃度低-56、活跃度低-7、活跃度低-379、活跃度低-3457、活跃度低-8、活跃度低-80、活跃度低-6、活跃度低-9、活跃度低-78、活跃度低-1、活跃度低-1690、活跃度低-1、活跃度低-24、活跃度低-1236790、活跃度低-13、活跃度低-2、活跃度低-6、活跃度低-15、活跃度低-20、活跃度低-156、活跃度低-1、活跃度低-149、活跃度低-7、活跃度低-250、活跃度低-490、活跃度低-4567、活跃度低-15、活跃度低-23480、活跃度低-12345890、活跃度低-1、活跃度低-8、活跃度低-5、活跃度低-37、活跃度低-80、活跃度低-0、活跃度低-45、活跃度低-23、活跃度低-4、活跃度低-257、活跃度低-236、活跃度低-13470、活跃度低-4、活跃度低-1、活跃度低-1、活跃度低-8、活跃度低-0、活跃度低-124670、活跃度低-3680、活跃度低-24、活跃度低-36、活跃度低-259、活跃度低-368、活跃度低-19、活跃度低-6、活跃度低-2、活跃度低-124670、活跃度低-0、活跃度低-1235、活跃度低-36、活跃度低-2、活跃度低-1、活跃度低-4790、活跃度低";
+             String[] strings = res.split("-");
+        HashMap<Integer, Integer> map = new HashMap<>();
+        for (int i = 0; i < strings.length; i++) {
+            String[] value = strings[i].split("、");
+            char[] strc = value[0].toCharArray();
+            for (char key : strc) {
+                if (map.containsKey(key - '0')) {
+                    int num = map.get(key - '0');
+                    map.put(key - '0', num + 1);
+                } else {
+                    map.put(key - '0', 1);
+                }
+            }
 
-        TestLeetCode s = new TestLeetCode();
-        System.out.println(s.serialize(s.deserialize(",1,2,3,-,-,-,-")));
-        System.out.println(s.serialize(node1));
+        }
+        for (Integer var : map.keySet()) {
+            System.out.println(var + "出现了" + map.get(var) + "次");
+        }
+
     }
-
 }
